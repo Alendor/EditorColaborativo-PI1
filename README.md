@@ -1,1 +1,2 @@
-# PI1
+# Editor Colaborativo de partituras musicales
+Proyecto Integrador 1
