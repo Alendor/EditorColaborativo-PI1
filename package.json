@@ -2,17 +2,10 @@
   "name": "editormusicalcolaborativo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
-  "scripts": {
-    "start": "nodemon server/app.js"
-  },
+  "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-
-  },
-  "devDependencies": {
-    "nodemon": "^1.15.1"
-  }
+  "license": "ISC"
+  
+ 
 }
