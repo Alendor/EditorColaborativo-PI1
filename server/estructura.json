@@ -1,0 +1,42 @@
+
+
+
+{"nombre_obra": "Dolphin Dance",
+"descripcion_obra":{
+    "compositor": ["David", "Sebastian"],
+    "genero": "Classic",
+    "version": 2
+    },
+
+"descripcion_partitura": {
+    "instrumento": ["Guitarra",25],
+    "canal_midi": 2,
+    "patch": "#valor"
+    }, 
+
+"pentagrama":{
+    "cantidad_lineas": 5,
+    "grosor": 3.1,
+    "separacion": 0.5,
+    "ubicacion_pentagrama": [1,2],
+    "clef": "G",
+    "compas": [4,4]   
+    },
+
+"eventos": [{
+        "tempo": 1.2,
+        "tipo": "nota",
+        "nota_midi": 3,
+        "ubicacion_evento":[2,3],
+        "descripcion_figura":{
+            "representacion_ascii": 56,
+            "grosor_figura": 2.0,
+            "plica": 1,
+            "corchete":2,
+            "signosDeLaFigura": ["acentoASCII"]
+        },
+        "alteración": 3,
+        "velocidadAtaque" : 3
+    }
+]
+}
