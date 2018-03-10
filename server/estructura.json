@@ -5,7 +5,7 @@
 "descripcion_obra":{
     "compositor": ["David", "Sebastian"],
     "genero": "Classic",
-    "version": 2
+    "version": 2.0
     },
 
 "descripcion_partitura": {
@@ -18,24 +18,51 @@
     "cantidad_lineas": 5,
     "grosor": 3.1,
     "separacion": 0.5,
-    "ubicacion_pentagrama": [1,2],
-    "clef": "G",
-    "compas": [4,4]   
+    "ubicacion_pentagrama": [1,2]
     },
 
 "eventos": [{
         "tempo": 1.2,
         "tipo": "nota",
+        "clef": "G",
+        "compas": [4,4],
         "nota_midi": 3,
-        "ubicacion_evento":[2,3],
-        "descripcion_figura":{
+        "ubicacion":{
+            "grafica": [2,3],
+            "cronometrica": 2.1,
+            "mesurada": [2,3]
+         },
+        "figura":{
             "representacion_ascii": 56,
-            "grosor_figura": 2.0,
-            "plica": 1,
+            "formato_cabeza": {
+                "tamaño_fuente": 14.0,
+                "color": "#000000"
+            },
+            "formato_plica": {
+                "grosor": 4,
+                "angulo": 85,
+                "longitud": 15
+            },
             "corchete":2,
-            "signosDeLaFigura": ["acentoASCII"]
+            "signos_de_la_Figura": {
+                "graficos": xx,
+                "caracter": xx,
+                "tamaño": 14,
+                "ubicacion_en_figura": [x,y]
+            },
+            "signos_entre_figuras": {
+                "alcance": 25,
+                "grosor": 2,
+                "angulo": 14
+            },
+            "barra_entre_figuras": {
+                "alcance": 25,
+                "grosor": 2,
+                "angulo": 14,
+                "cantidad _linea": 2
+            },
+            "alteración": 3
         },
-        "alteración": 3,
         "velocidadAtaque" : 3
     }
 ]
