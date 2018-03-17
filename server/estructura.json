@@ -45,10 +45,10 @@
             },
             "corchete":2,
             "signos_de_la_Figura": {
-                "graficos": xx,
-                "caracter": xx,
+                "graficos": "xx",
+                "caracter": "xx",
                 "tamaño": 14,
-                "ubicacion_en_figura": [x,y],
+                "ubicacion_en_figura": ["x","y"],
                 "alteracion": 3
             },
             "signos_entre_figuras": {
@@ -61,7 +61,7 @@
                 "grosor": 2,
                 "angulo": 14,
                 "cantidad _linea": 2
-            },
+            }
         },
         "velocidadAtaque" : 3
     }
