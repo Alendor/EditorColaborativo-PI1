@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000
 //app.set('port', (process.env.PORT || 5000));
 
 
-
 var estructura;
 var jsonPath = __dirname + '/estructura.json';
 
@@ -41,12 +40,11 @@ function readJSONFile(jsonPath){
     });
 }
 
-var messages = [];
-// =[{
+var messages = [] 
+// [{
 //     id: 1,
 //     text: "Hola soy mensaje",
 //     author: "Sebastian O"
-
 // }]
 
 app.use(express.static('public'));
@@ -68,16 +66,14 @@ io.on('connection', function(socket){
         //console.log(messages);
     })
     .then(noCare => {
-       // console.log(messages);
         
-            //console.log(messages[i]);
-            socket.emit('messages', messages);
-        
-        socket.on('new-message', function(data){
-            messages.push(data);
-            io.sockets.emit('messages', messages);// avisa a todos los sockets sobre el mensaje
-        }); 
+    socket.emit('messages', messages);
+    socket.on('new-message', function(data){
+    //messages.push(data);
+    io.sockets.emit('messages', messages);// avisa a todos los sockets sobre el mensaje
+    }); 
     })
+    
     .catch(error => {
         console.log("error");
     })

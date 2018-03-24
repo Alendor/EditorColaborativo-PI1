@@ -1,20 +1,25 @@
-var socket = io.connect(
-    {'forceNew': true});
+var socket = io.connect({'forceNew': true});
 
  socket.on('messages', function(data){
 
-    //console.log(data);   
-    render(data.value);   
+    console.log(data);   
+    render(data);   
 })    
 
 function render(data){
+
     var html = data.map(function(elem, index){
         return(`<div>   
-         <strong>${elem}</strong>:
-         <em>${elem.nombre_obra}</em>
+         <strong>${elem.nombre_obra }</strong>
+         </br></br> 
+         <textarea rows="20" cols="50">
+            ${JSON.stringify(elem)}
+         </textarea>
+        
         </div>`);
     }).join(" ");
-    console.log(data);
+    //console.log(data);
+    
     document.getElementById('messages').innerHTML = html;
 }
 
