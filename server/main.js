@@ -3,6 +3,10 @@ var jf = require("jsonfile");
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+const port = process.env.PORT || 5000
+//app.set('port', (process.env.PORT || 5000));
+
+
 
 var estructura;
 var jsonPath = __dirname + '/estructura.json';
@@ -81,7 +85,7 @@ io.on('connection', function(socket){
 });      
  
 
-server.listen(8084, function(){
+server.listen(port, function(){
     console.log("servidor corriendo  8084")
 });         
  
