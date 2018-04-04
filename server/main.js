@@ -47,6 +47,24 @@ var messages = []
 //     author: "Sebastian O"
 // }]
 
+
+readJSONFile(jsonPath)
+.then(estructuraJSON => {
+   // estructuraJSON.eventos[0]=""; 
+    //writeJSONFile(estructuraJSON); 
+    
+   messages.push(estructuraJSON);
+    //console.log(messages);
+})
+// .then(noCare => {
+    
+ 
+// })
+
+.catch(error => {
+    console.log("error");
+})
+
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
@@ -55,29 +73,11 @@ app.get('/', function(req, res){
   
 io.on('connection', function(socket){
     
-    console.log("Alguien se ha conectado!");
-    
-    readJSONFile(jsonPath)
-    .then(estructuraJSON => {
-       // estructuraJSON.eventos[0]=""; 
-        //writeJSONFile(estructuraJSON); 
-        
-       messages.push(estructuraJSON);
-        //console.log(messages);
-    })
-    .then(noCare => {
-        
     socket.emit('messages', messages);
     socket.on('new-message', function(data){
-    //messages.push(data);
+    messages.splice(0,1,data.text);
     io.sockets.emit('messages', messages);// avisa a todos los sockets sobre el mensaje
     }); 
-    })
-    
-    .catch(error => {
-        console.log("error");
-    })
-
 });      
  
 
