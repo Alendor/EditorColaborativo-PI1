@@ -10,8 +10,13 @@ export class AppComponent implements OnInit {
   title = 'app';
   text = "";
   text2 = "";
-  
+  clase1="prueba";
+  clase= {
+   "tamano":"prueba"
+  }
+  count;
  
+  
   
   ngOnInit(): void {
     const socket = socketIo('http://localhost:5000');
@@ -20,7 +25,8 @@ export class AppComponent implements OnInit {
       this.text = JSON.stringify(data);
       
       this.text2 = data;
-    console.log(data);
+      console.log(data);
+    
     
     });
    

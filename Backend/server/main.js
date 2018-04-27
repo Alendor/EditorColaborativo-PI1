@@ -5,6 +5,8 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const port = process.env.PORT || 5000
 //app.set('port', (process.env.PORT || 5000));
+const mongoose = require('mongoose');
+const config=require('../config');
 
 
 var estructura;
@@ -21,6 +23,17 @@ function writeJSONFile( estructura){
         });
     });
 }
+
+mongoose.connect(config.dbMongo, (err, res) => {
+    if (err) {
+        return console.log(`Error al conectarse a la base de datos: ${err}`);
+    } else {
+        console.log("conecion establecida");
+    }
+    app.listen(config.port, () => {
+        console.log(`API corriendo por el puerto: ${config.port}`);
+    })
+});
 
 /*readJSONFile("")
 .then(function(ll){

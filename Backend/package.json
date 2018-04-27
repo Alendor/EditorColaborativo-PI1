@@ -21,6 +21,7 @@
     "express": "^4.16.3",
     "i": "^0.3.6",
     "jsonfile": "^4.0.0",
+    "mongoose": "^5.0.16",
     "socket.io": "^2.1.0"
   },
   "devDependencies": {
