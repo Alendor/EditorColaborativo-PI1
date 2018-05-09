@@ -1,163 +1,85 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+'use strict'
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-let partituraSchema = new Schema({
-    "nombre_obra": "Dolphin Dance",
-    "descripcion_obra":{
-        "compositor": ["David", "Sebastian"],
-        "genero": "Classic",
-        "version": 2.0
-        },
-    
-    "descripcion_partitura": {
-        "instrumento": ["Guitarra",25],
-        "canal_midi": 2,
-        "patch": "#valor"
-        }, 
-    
-    "pentagrama":{
-        "cantidad_lineas": 5,
-        "grosor": 3.1,
-        "separacion": 0.5,
-        "ubicacion_pentagrama": [1,2]
-        },
-    
-    "eventos": 
-    [   {
-            "tempo": 1.2,
-            "tipo": "nota",
-            "clef": "G5",
-            "compas": [4,4],
-            "nota_midi": 3,
-            "ubicacion":{
-                "grafica": [2,3],
-                "cronometrica": 2.1,
-                "mesurada": [2,3]
-             },
-            "figura":{
-                "representacion_ascii": 56,
-                "formato_cabeza": {
-                    "tamaño_fuente": 14.0,
-                    "color": "#000000"
-                },
-                "formato_plica": {
-                    "grosor": 4,
-                    "angulo": 85,
-                    "longitud": 15
-                },
-                "corchete":2,
-                "signos_de_la_Figura": {
-                    "graficos": "xx",
-                    "caracter": "xx",
-                    "tamaño": 14,
-                    "ubicacion_en_figura": ["x","y"],
-                    "alteracion": 3
-                },
-                "signos_entre_figuras": {
-                    "alcance": 25,
-                    "grosor": 2,
-                    "angulo": 14
-                },
-                "barra_entre_figuras": {
-                    "alcance": 25,
-                    "grosor": 2,
-                    "angulo": 14,
-                    "cantidad _linea": 2
-                }
-            },
-            "velocidadAtaque" : 3
-        },
+const partituraSchema = Schema(
         {
-            "tempo": 1.2,
-            "tipo": "nota",
-            "clef": "A",
-            "compas": [4,4],
-            "nota_midi": 3,
-            "ubicacion":{
-                "grafica": [2,3],
-                "cronometrica": 2.1,
-                "mesurada": [2,3]
-             },
-            "figura":{
-                "representacion_ascii": 56,
-                "formato_cabeza": {
-                    "tamaño_fuente": 14.0,
-                    "color": "#000000"
-                },
-                "formato_plica": {
-                    "grosor": 4,
-                    "angulo": 85,
-                    "longitud": 15
-                },
-                "corchete":2,
-                "signos_de_la_Figura": {
-                    "graficos": "xx",
-                    "caracter": "xx",
-                    "tamaño": 14,
-                    "ubicacion_en_figura": ["x","y"],
-                    "alteracion": 3
-                },
-                "signos_entre_figuras": {
-                    "alcance": 25,
-                    "grosor": 2,
-                    "angulo": 14
-                },
-                "barra_entre_figuras": {
-                    "alcance": 25,
-                    "grosor": 2,
-                    "angulo": 14,
-                    "cantidad _linea": 2
-                }
-            },
-            "velocidadAtaque" : 3
-        },
-        {
-            "tempo": 1.2,
-            "tipo": "nota",
-            "clef": "G",
-            "compas": [4,4],
-            "nota_midi": 3,
-            "ubicacion":{
-                "grafica": [2,3],
-                "cronometrica": 2.1,
-                "mesurada": [2,3]
-             },
-            "figura":{
-                "representacion_ascii": 56,
-                "formato_cabeza": {
-                    "tamaño_fuente": 14.0,
-                    "color": "#000000"
-                },
-                "formato_plica": {
-                    "grosor": 4,
-                    "angulo": 85,
-                    "longitud": 15
-                },
-                "corchete":2,
-                "signos_de_la_Figura": {
-                    "graficos": "xx",
-                    "caracter": "xx",
-                    "tamaño": 14,
-                    "ubicacion_en_figura": ["x","y"],
-                    "alteracion": 3
-                },
-                "signos_entre_figuras": {
-                    "alcance": 25,
-                    "grosor": 2,
-                    "angulo": 14
-                },
-                "barra_entre_figuras": {
-                    "alcance": 25,
-                    "grosor": 2,
-                    "angulo": 14,
-                    "cantidad _linea": 2
-                }
-            },
-            "velocidadAtaque" : 3
+            name:String
         }
-    ]
-    }, { versionKey: false });
 
-let Partitura = mongoose.model('Partituras', partiturasSchema);
+    );
 
-module.exports = Partitura;
+
+    // para exportar el modelo y que se pueda usar desde cualquier
+    // parte de la aplicación 
+
+module.exports = mongoose.model('parti', partituraSchema);
+
+// id: String,
+//         fecha: String,    
+//         nombre_obra:String,
+//         descripcion_obra:{
+//             compositor: Array,
+//             genero: String,
+//             version: Number
+//             },
+        
+//         descripcion_partitura: {
+//             instrumento: Array,
+//             canal_midi: Number,
+//             patch: Number
+//             }, 
+        
+//         pentagrama:{
+//             cantidad_lineas: Number,
+//             grosor: Number,
+//             separacion: Number,
+//             ubicacion_pentagrama: Array
+//             },
+        
+//         eventos: 
+//         [   {
+//                 tempo: Number,
+//                 tipo: String,
+//                 clef: String,
+//                 compas: Array,
+//                 nota_midi: Number,
+//                 ubicacion:{
+//                     grafica: Array,
+//                     cronometrica: Number,
+//                     mesurada: Array
+//                 },
+//                 figura:{
+//                     representacion_ascii: Number,
+//                     formato_cabeza: {
+//                         tamaño_fuente: Number,
+//                         color: Number
+//                     },
+//                     formato_plica: {
+//                         grosor: Number,
+//                         angulo: Number,
+//                         longitud: Number
+//                     },
+//                     corchete: Number,
+//                     signos_de_la_Figura: {
+//                         graficos: Number,
+//                         caracter: Number,
+//                         tamaño: Number,
+//                         ubicacion_en_figura: Array,
+//                         alteracion: Number
+//                     },
+//                     signos_entre_figuras: {
+//                         alcance: Number,
+//                         grosor: Number,
+//                         angulo: Number
+//                     },
+//                     barra_entre_figuras: {
+//                         alcance: Number,
+//                         grosor: Number,
+//                         angulo: Number,
+//                         cantidad_linea: Number
+//                     }
+//                 },
+//                 velocidadAtaque : Number
+//             }
+//         ]
