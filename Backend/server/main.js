@@ -114,7 +114,7 @@ pa.find((err, contenido)=>{
         // construimos el JSON de respuesta   
         console.log("consulta exitosa");    
         messages = contenido;
-        console.log(messages[1].nombre_obra);
+        //console.log(messages[1].nombre_obra);
         //callback(0,m);
     }        
 });

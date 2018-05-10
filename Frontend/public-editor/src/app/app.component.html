@@ -26,14 +26,14 @@
     
   </h1>
 </div>
-<div class="pentagrama" *ngIf ="text2" ng-list="">
+<div class="pentagrama" *ngIf="text" >
+  <!-- ngFor-->
   <section class="barras">
-      <span class="clave">&#64;{{text2[1].eventos[0].clef}}</span>
+      <span class="clave-{{text2[1].eventos[1].clef}}"></span>
       <span class="half hi f2"></span>
       <span class="half hi e2"></span>
   </section>
   <section class="barras">
-
       <span class="half hi d2"></span>
       <span class="half hi c2"></span>
       

@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
    "tamano":"prueba"
   }
   count;
+  hola;
  
   
   
