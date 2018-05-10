@@ -1,16 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf ="text"  style="text-align:left">
   <h1>
-    <p *ngIf ="text">Welcome to  {{text2.nombre_obra}}!</p> 
-    <p *ngIf ="text">Autores:  {{text2.descripcion_obra.compositor[0]}}!</p>
-    <p *ngIf ="text">Autores:  {{text2.descripcion_obra.compositor[1]}}!</p>  
+    <p *ngIf ="text">Welcome to  {{text2[1].nombre_obra}}!</p> 
+    <p *ngIf ="text">Autores:  {{text2[0].descripcion_obra.compositor[0]}}!</p>
+    <p *ngIf ="text">Autores:  {{text2[0].descripcion_obra.compositor[1]}}!</p>  
 
     <form>
         Select una nota:
         <br>
         <select  *ngIf ="text" ng-model="myVar" data-ng-change=""    >
-          <option value="{{text2.eventos[1].clef}}">{{text2.eventos[1].clef}}
-          <option value="{{text2.eventos[2].clef}}">{{text2.eventos[2].clef}}  
+          <option value="{{text2[0].eventos[1].clef}}">{{text2[0].eventos[1].clef}}
+          <option value="{{text2[0].eventos[2].clef}}">{{text2[0].eventos[2].clef}}  
         </select>
         
             Nota a ingresar: <input type="text" ng-model="firstname">
@@ -20,15 +20,15 @@
 
     <textarea  *ngIf ="!text" name="" id="texarea" cols="30" rows="30"
       style="margin: 0px;width: 400px;height: 442px;box-shadow: 5px 0 3px 0px black;">
-      {{text}}
+      {{text2[0]}}
     </textarea>
     
     
   </h1>
 </div>
-<div class="pentagrama">
+<div class="pentagrama" *ngIf ="text2" ng-list="">
   <section class="barras">
-      <span class="clave">&#119074;</span>
+      <span class="clave">&#64;{{text2[1].eventos[0].clef}}</span>
       <span class="half hi f2"></span>
       <span class="half hi e2"></span>
   </section>

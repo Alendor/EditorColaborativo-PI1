@@ -8,6 +8,6 @@
 //dbMongo:process.env.MONGODB || 'mongodb://admin_Jansel:jansel@ds249249.mlab.com:49249/db_jansel_arrendamientos',
 
 module.exports={
-    dbMongo:process.env.MONGODB || 'mongodb://admin:admin123@ds261429.mlab.com:61429/partituras'
+    dbMongo:process.env.MONGODB || 'mongodb://admin:admin123@ds119820.mlab.com:19820/obras'
     
 }

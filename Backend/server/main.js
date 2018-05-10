@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000
 const mongoose = require('mongoose');
 const config=require('../config/conexion');
 //app.use(express.static('public'));
-const partituraModel = require('../models/partitura');//  importar modelo
+const pa = require('../models/partitura');//  importar modelo
 var bodyParser = require('body-parser');
 
  
@@ -89,21 +89,20 @@ var messages = []
 
 // app.get('/', function(req, res){
 //     res.status(200).send("hola mundo");
-// });
+// }); 
 
 
 // busco en mongodb
-partituraModel.find((err, partituras)=>{
+pa.find((err, contenido)=>{
     // var responseHomes = {
     //     agency:agency,
     //     homes:[]
     // }  
     //var callback;
-    
     if(err){ // en caso de error retorno  1 y el error
         //callback(1,err);
         console.log("error de consulta");
-    }else if(partituras.length == 0){ // en caso de que la consulta sea vacia retorno 0 y null el dato
+    }else if(contenido.length == 0){ // en caso de que la consulta sea vacia retorno 0 y null el dato
         //callback(0,messages);
         console.log("consulta vacia");
     }else{ // siendo positiva la consulta retorno el array
@@ -114,8 +113,8 @@ partituraModel.find((err, partituras)=>{
         // }); 
         // construimos el JSON de respuesta   
         console.log("consulta exitosa");    
-        messages = partituras;
-        console.log(partituras);
+        messages = contenido;
+        console.log(messages[1].nombre_obra);
         //callback(0,m);
     }        
 });
