@@ -1,38 +1,56 @@
 
-<ng-container *ngIf="text">
-<div   style="text-align:left">
-  <h1>
-    <p *ngIf ="text">Welcome to  {{text2[1].nombre_obra}}!</p> 
-    <p *ngIf ="text">Autores:  {{text2[0].descripcion_obra.compositor[0]}}!</p>
-    <p *ngIf ="text">Autores:  {{text2[0].descripcion_obra.compositor[1]}}!</p>  
 
-    <form>
-        Select una nota:
-        <br>
-        <select  *ngIf ="text" ng-model="myVar" data-ng-change=""    >
-          <option value="{{text2[0].eventos[1].clef}}">{{text2[0].eventos[1].clef}}
-          <option value="{{text2[0].eventos[2].clef}}">{{text2[0].eventos[2].clef}}  
-        </select>
-        
-            Nota a ingresar: <input type="text" ng-model="firstname">
 
-          
-    </form>
 
-    <textarea  *ngIf ="!text" name="" id="texarea" cols="30" rows="30"
-      style="margin: 0px;width: 400px;height: 442px;box-shadow: 5px 0 3px 0px black;">
-      {{text2[0]}}
-    </textarea>
-    
-    
-  </h1>
+<div class="encabezado-principal">
+  <h1 class="titulo-principal efecto">Editor Colaborativo de Partituras Musicales</h1>
+  <h1 class="presentacion" >Realizado por:</h1>
+  <h1 class="nombres efecto ">Sebastian Osorno Zapata</h1>
+  <h1 class="nombres efecto">David A. Parra</h1>
+  <hr class="linea">
+
 </div>
 
+<ng-container *ngIf="text2" >
+<div class="atributos-obra">
+    
+    <!-- <form >
+        Select una nota:
+        <br>
+        <select  ng-model="myVar" name="num-coleccion"  ng-change="elegirobra()">
+            <option *ngFor="let obra of text2" value="{{obra.nombre_obra}}">{{obra.nombre_obra}}</option> 
+        </select>
+        <input type="submit">
+            Nota a ingresar: <input type="text" ng-model="firstname">
+    </form> -->
+    <input (keydown.enter)="consultar($event.target.value)"
+       type="text">
+    <!-- <input type="submit" (submit)="consultar()" > -->
+           
 
-<div class="pentagrama" *ngIf="text" >
+    <h2 class="titulo-obra">{{text2[id$].nombre_obra}}</h2>
+    <h2 class="version-obra">Version: {{text2[id$].descripcion_obra.version}}</h2>
+    <h2 class="genero-obra">Genero: {{text2[id$].descripcion_obra.genero}} </h2> 
+    <h2 class="autores-obra" *ngFor="let autor of text2[id$].descripcion_obra.compositor"> {{autor}}</h2>
+    <p>{{id}}</p>
+
+    
+
+
+    <!-- <textarea  *ngIf ="!text" name="" id="texarea" cols="30" rows="30"
+      style="margin: 0px;width: 400px;height: 442px;box-shadow: 5px 0 3px 0px black;">
+      {{text2[0]}}
+    </textarea> -->
+    
+    
+  
+</div>
+<div> <hr class="linea"></div>
+
+<div class="pentagrama"  >
   <!-- ngFor-->
   <section class="barras">
-      <span class="clave-{{text2[1].eventos[1].clef}}"></span>
+      <span class="clave-{{text2[id$].eventos[1].clef}}"></span>
       <span class="half hi f2" ></span>
       <span class="half prueba"></span>
       <!-- <span class="half hi e2"></span>
@@ -57,13 +75,13 @@
       <span class="half hi e3"></span>
 
   </section>
-  <p  *ngIf ="!text" class="{{clase.tamano}}"> {{clase.tamano}} </p>
-</div>
+  <!-- <p  *ngIf ="!text" class="{{clase.tamano}}"> {{clase.tamano}} </p> -->
+<!-- </div> -->
 
 
 
-<div class="pentagrama" *ngFor="let mensage of text2[id].eventos">
-  <section class=" barras ">
+<!-- <div class="pentagrama"> -->
+  <section class="barras"  *ngFor="let mensage of text2[id$].eventos">
     <span class="clave-{{mensage.clef}}"></span>
     
   </section>

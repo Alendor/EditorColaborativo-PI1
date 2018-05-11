@@ -123,8 +123,21 @@ pa.find((err, contenido)=>{
   
 io.on('connection', function(socket){
     //socket.emit('hello', {greeting:'hello'});
+
     socket.emit('messages', messages);
     socket.on('new-message', function(data){
+        console.log(data);
+        
+        pa.find((err, contenido)=>{
+            if(err){
+                console.log("error de consulta");
+            }else if(contenido.length == 0){
+                console.log("consulta vacia");
+            }else{    
+                console.log("consulta exitosa");    
+                messages = contenido;
+            }
+        });
     //messages.splice(0,1,data.text);
     io.sockets.emit('messages', messages);// avisa a todos los sockets sobre el mensaje
     }); 

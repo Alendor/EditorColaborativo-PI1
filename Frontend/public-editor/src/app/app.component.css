@@ -1,3 +1,93 @@
+/* arabic */
+@font-face {
+  font-family: 'Aref Ruqaa';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aref Ruqaa Regular'), local('ArefRuqaa-Regular'), url(https://fonts.gstatic.com/s/arefruqaa/v5/WwkbxPW1E165rajQKDulIIIoVeo5.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+/* latin */
+@font-face {
+  font-family: 'Aref Ruqaa';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aref Ruqaa Regular'), local('ArefRuqaa-Regular'), url(https://fonts.gstatic.com/s/arefruqaa/v5/WwkbxPW1E165rajQKDulIIcoVQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.encabezado-principal{
+  text-align: center;
+  font-family: 'Aref Ruqaa', serif;
+  font-weight: bold;
+  width: 100%;
+
+}
+@media(max-width: 800px){
+  .titulo-principal{ font-size:1.5em;}
+}
+
+.titulo-principal{
+  font-size: 3em;
+  transform: scale(1);
+  transition: all 0.6s linear;
+}
+
+.efecto:hover{
+  transform: scale(1.08);
+  display: block;
+}
+
+.linea{
+  width: 60%;
+  height: 4px;
+  margin-top: 1rem;
+  background: #000;
+  /* margin-bottom: 40px */
+}
+
+.presentacion{
+  font-size: 1.5em;
+  
+}
+
+.nombres{
+  font-weight: lighter;
+  font-size: 1em;
+  padding-top: -20px;
+   
+}
+
+.atributos-obra{
+  align-self: center;
+  text-align: left;
+  margin-bottom: 120px;
+  margin-top: 0px;
+  font-family: 'Aref Ruqaa', serif;
+  font-size: 1em;
+  height: 19rem;
+  text-align: center;
+
+}
+
+.titulo-obra{
+  font-size: 2em;
+  margin: 0%;
+  text-align: center; 
+}
+
+.autores-obra{
+  margin: 0px;
+  padding:  19px;
+  height: 0px;
+  
+  /* top: -90px; */
+  
+}
+
+.genero-obra{
+  height: 20px;
+}
+
 body {
   background-color: hsl(24, 10%, 90%);
   margin: 4rem;
@@ -10,6 +100,11 @@ body {
 div.pentagrama { 
   display: inline-block;
   text-align: initial;
+  margin-top: 4rem;
+  border-top: 80px;
+  border: 3px;
+  border-style: groove;
+  padding: 5%;
   }
 
   section.barras {
