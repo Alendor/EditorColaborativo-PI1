@@ -23,6 +23,13 @@
         <input type="submit">
             Nota a ingresar: <input type="text" ng-model="firstname">
     </form> -->
+    <!-- <form (ngModelChange)="elegirobra(num-coleccion.value)">
+        <select name="num-coleccion">
+            <option *ngFor="let obra of text2" value="{{obra.nombre_obra}}">{{obra.nombre_obra}}</option> 
+        </select> 
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </form>
+     -->
     <input (keydown.enter)="consultar($event.target.value)"
        type="text">
     <!-- <input type="submit" (submit)="consultar()" > -->
@@ -47,16 +54,12 @@
 </div>
 <div> <hr class="linea"></div>
 
-<div class="pentagrama"  >
+<div class="pentagrama"   >
   <!-- ngFor-->
-  <section class="barras">
+  <!-- <section class="barras">
       <span class="clave-{{text2[id$].eventos[1].clef}}"></span>
       <span class="half hi f2" ></span>
       <span class="half prueba"></span>
-      <!-- <span class="half hi e2"></span>
-      <span class="half hi c2" ></span>
-      <span class="half hi e3"></span>
-   -->
   </section>
   <section class="barras">
       <span class="half hi d2"></span>
@@ -74,17 +77,22 @@
   <section class="barras" *ngIf ="!text">
       <span class="half hi e3"></span>
 
-  </section>
+  </section> -->
   <!-- <p  *ngIf ="!text" class="{{clase.tamano}}"> {{clase.tamano}} </p> -->
 <!-- </div> -->
 
 
 
 <!-- <div class="pentagrama"> -->
-  <section class="barras"  *ngFor="let mensage of text2[id$].eventos">
-    <span class="clave-{{mensage.clef}}"></span>
-    
-  </section>
-
+    <ng-container *ngFor="let mensage of text2[id$].eventos">
+        <section class="barras"  >
+        <span   class=" {{mensage.clef}}"></span>
+        <ng-container  >
+            <span  class=" half hi {{mensage.nota}}"></span>
+            <span  class=" half hi {{mensage.nota+1}}"></span>
+            
+        </ng-container>
+        </section>
+    </ng-container>     
 </div>
 </ng-container>

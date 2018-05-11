@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   // clase= {
   //  "tamano":"prueba"
   // }
-  // count;
+  count= 0;
   
   id$=0;
 
@@ -42,11 +42,11 @@ export class AppComponent implements OnInit {
      this.socket.emit('new-message', id);
   }
 
-  // elegirobra(){
-  //   console.log("ddol");
-  //   this.id1 = document.getElementsByName("num-coleccion").item;
+  elegirobra(id){
+    console.log("ddol");
+    this.id$ = id;
     
     
-  // }
+  }
   
 }

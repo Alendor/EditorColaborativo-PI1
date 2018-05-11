@@ -98,6 +98,7 @@ body {
 }
 
 div.pentagrama { 
+  
   display: inline-block;
   text-align: initial;
   margin-top: 4rem;
@@ -105,6 +106,8 @@ div.pentagrama {
   border: 3px;
   border-style: groove;
   padding: 5%;
+  align-content: center;
+  left: 50%;
   }
 
   section.barras {
