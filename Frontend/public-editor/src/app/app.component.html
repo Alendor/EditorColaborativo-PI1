@@ -1,5 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div *ngIf ="text"  style="text-align:left">
+
+<ng-container *ngIf="text">
+<div   style="text-align:left">
   <h1>
     <p *ngIf ="text">Welcome to  {{text2[1].nombre_obra}}!</p> 
     <p *ngIf ="text">Autores:  {{text2[0].descripcion_obra.compositor[0]}}!</p>
@@ -26,12 +27,18 @@
     
   </h1>
 </div>
+
+
 <div class="pentagrama" *ngIf="text" >
   <!-- ngFor-->
   <section class="barras">
       <span class="clave-{{text2[1].eventos[1].clef}}"></span>
-      <span class="half hi f2"></span>
-      <span class="half hi e2"></span>
+      <span class="half hi f2" ></span>
+      <span class="half prueba"></span>
+      <!-- <span class="half hi e2"></span>
+      <span class="half hi c2" ></span>
+      <span class="half hi e3"></span>
+   -->
   </section>
   <section class="barras">
       <span class="half hi d2"></span>
@@ -52,3 +59,14 @@
   </section>
   <p  *ngIf ="!text" class="{{clase.tamano}}"> {{clase.tamano}} </p>
 </div>
+
+
+
+<div class="pentagrama" *ngFor="let mensage of text2[id].eventos">
+  <section class=" barras ">
+    <span class="clave-{{mensage.clef}}"></span>
+    
+  </section>
+
+</div>
+</ng-container>

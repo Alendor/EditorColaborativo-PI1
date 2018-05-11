@@ -25,11 +25,11 @@ div.pentagrama {
     margin-bottom: 4rem;
   }
 
-  .clave {
+  /* .clave {
     font-size: 5rem;
     position: relative;
     top: -2rem;
-  }
+  } */
 
   section.barras:first-child {
     /*Barra inicial*/
@@ -40,6 +40,21 @@ div.pentagrama {
     border-right: 4px solid #000;
   }
 
+  span.note { 
+    font-size: 6rem; 
+    margin-right: -3.3rem;
+    display: inline-block;
+    position: relative;
+  }
+
+  .prueba {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    margin: 3rem;
+    margin-bottom: 11px;
+  }
+
   span.hi { 
     font-size: 6rem; 
     margin-right: -3.3rem;
@@ -47,9 +62,9 @@ div.pentagrama {
     position: relative;
   }
 
-  .prueba{
+  /* .prueba{
     font-size: 50px;
-  }
+  } */
   
   .hi {
     position: relative;
@@ -64,19 +79,33 @@ div.pentagrama {
     width: 21px;
   }
 
-  .half.note::after {
+  .prueba::before {
+    height: 10px;
+    width: 21px;
+  }
+
+  .half.prueba::after {
     content: "";
     height: 52px;
     width: 3px;
     background-color: black;
     position: absolute;
     top: -50px;
-    right: 0;
+    right: 10;
   }
+
+  .half.prueba::before {
+  box-sizing:  20px 20px;
+  border: 1px solid #000000;
+  border-top-width: 4px;
+  border-bottom-width: 4px;
+  
+}
+  
   .half.hi::after {
     content: "";
     height: 52px;
-    width: 3px;
+    width: 3px; /*grosor de lo que este antes de el circulo*/
     background-color: black;
     position: absolute;
     top: -50px;
@@ -93,6 +122,20 @@ div.pentagrama {
     bottom: -8px;
   }
 
+  .half.prueba::before{
+    position: absolute;
+    content: "";
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    border-radius: 80%;
+    bottom: -8px;
+    right: -10;
+  }
+
+
+
+
   .half.hi::before{
     position: absolute;
     content: "";
@@ -100,7 +143,7 @@ div.pentagrama {
     -moz-transform: rotate(-15deg);
     -ms-transform: rotate(-15deg);
     border-radius: 50%;
-    bottom: -8px;
+    bottom: -8px; /*Distancia entre el circulo y la linea o lo que este antes*/
   }
   
  
@@ -114,7 +157,7 @@ div.pentagrama {
  
   .hi.c2 { bottom: 1.6rem; }
   .hi.d2 { bottom: 2.1rem; }
-  .hi.f2 { bottom: 1.6rem; }
+  .hi.f2 { bottom: 1rem;   }
   .hi.e2 { bottom: 3.6rem; }
   .hi.e3 { bottom: 1.6rem; }
 
@@ -137,6 +180,6 @@ div.pentagrama {
   }
 
   .clave-F {
-    padding: 20px 20px;
+    padding: 1px 20px;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAoCAYAAABw65OnAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAPdEVYdFRpdGxlAEJhc3MgQ2xlZuuUSw0AAAAOdEVYdEF1dGhvcgBKYXNjaG9uyU/YQgAAAEl0RVh0Q29weXJpZ2h0AFB1YmxpYyBEb21haW4gaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvcHVibGljZG9tYWluL1nD/soAAAPVSURBVFiFvZhbiFdFHMc/33UXS9IuiBZ0NQyJLkpC9hD71FuY1Uv1stuihPWQJUr10FNFgRLRslGBQopES4VgUmFo+FISVHaRiu2u4eaWl2Ujcvfbw8zJ2bPnnD1n/3/7wTCcOfP7zWd+c/nNjGxTJpJmASuB24HFwOVAF3AKOA78AXwKfATstT1aaqxCVAYh6T5gI3BlLBoH/gTOA+Zk1ZL8OPAa0G/7SCMK25MSsADYQejlx8BjwDJgbvx/PnAH8DTBA6diGo3pMPBo3m5VygMsBN4HRoDtwOxKZbgA2A2cLIB5BTinEQTQGQ0eA96sbQDmAbtKQLY3hXgYGAaOAisauRPmAz9HkDzMI7UggIuBbyPE600AEpCXgBMFIMPAkirdjjg/b4sTzkCXpDslPS7pCUn3SppfY44PZnM9l84F1lYpyjaSBoC7srKC/Cjwsu0XK41J+4HrC2yMActt/1qkl3liXqSmJF8APCnpwSoI4FCBrgn7ys054H5JByU9kEGMMdWNacoMrpc0h3L5vUJ3UQJwE9Aby9ZlEL8V9KCoR3OBW2pAFNlYlNQ7RFhNBj7JIN4GJnINFvXoNDBUATFcoX9VVsn2WOzMKqCnIxZ+Rtii8y7M5/ts/1gBMVahe3Va0fYJ2x/YnuhIyjcCBwqUs3QQWFcBACHSFukakCQVKXUmZEOS7gHWADcC1wGzgB+APcBW26engbg2gYCwRB3zn1wSsjvTD9t/A/3TNDQdBEnDaf5LWlHSU8CtwKuTIFoRSZcBVzDZE6kMJXWXAQ/Fzw0dxfVnJEs502ty+T/AG0nd7zizkr5umycIx8AyL+yx/U32YXtUUjewAniv9HjXRCQtIRyGuiiOPX22d5Xpt8sTvYmtdDIC7AXeqVJu2ROSFgL7CEEw74URYKXt76tstGNiribEFJg6KZ+bDgBaHI4YDXtyDWey0/a2WnZmOhySZgNvUXyI+RBYbfuvOrZaGY71hK0dJg/DAWBtXQCY4XDENd7L1CH4Alhj+2QTe409IWkpsJmwJ5CA7Ad6bI80tdkIQtI1hAB3UQ5gEOi1fawpADQYDkmXAgPAJUnj48ALtluJvPUgJN0AbCLc0LMd8QjwjO3drQBAjeGQtArYSjgjZh54F7i7HQBQ4Yl4FNsA3E+ANeG5YLPtwTK9tkFIuhB4FuiOReOEG/vztg+3E6AQIoblTYTT8QRh6Q3Y/rzdjf8nya1aQB/h9eUrwmtN90xu6I1v9BFgMbAF+BLYSQi/Z73xLIkQivsIDxrbgB22x8+a6wukE1geXb8lXs/+d/kXWslAqkvvc5sAAAAASUVORK5CYII=") no-repeat 5px 0 transparent;
   }

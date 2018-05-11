@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
    "tamano":"prueba"
   }
   count;
-  hola;
+  id=1;
  
   
   
@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
     const socket = socketIo('http://localhost:5000');
     //socket.on('hello', (data) => console.log(data));
     socket.on('messages', (data) =>  {
-      this.text = JSON.stringify(data);
       
-      this.text2 = data;
-      console.log(data);
-    
+      
+        this.text =  JSON.stringify(data);
+        this.text2 = data;
+        console.log(data);
     
     });
    
