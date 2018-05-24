@@ -26,6 +26,10 @@
   .titulo-principal{ font-size:1.5em;}
 }
 
+body{
+  min-width: 600px;
+}
+
 .titulo-principal{
   font-size: 3em;
   transform: scale(1);
@@ -83,24 +87,16 @@
   /* top: -90px; */
   
 }
-
 .genero-obra{
   height: 20px;
 }
+/******************---------------------------------------*/
 
-body {
-  background-color: hsl(24, 10%, 90%);
-  margin: 4rem;
-  color: rgba(0,0,0,0.9);
-  font-size: 0;
-  line-height: .5;
-  text-align: center;
-}
 
 div.pentagrama { 
   
   display: inline-block;
-  text-align: initial;
+  size: 10px;
   margin-top: 4rem;
   border-top: 80px;
   border: 3px;
@@ -108,16 +104,17 @@ div.pentagrama {
   padding: 5%;
   align-content: center;
   left: 50%;
+  width: 87%
   }
 
   section.barras {
     float: left;
-    height: 4.1rem;
+    height: 4.3rem;
     background-image: linear-gradient(hsla(210, 50%, 30%, .5) 1px, transparent 1px);
     background-size: 100% 1rem;
     background-origin: content-box;
     font-size: 4rem;
-    width: 18rem;
+    /* width: 18rem; */
     border-left: 2px solid #000;
     border-right: 2px solid #000;
     margin-bottom: 4rem;
@@ -129,33 +126,56 @@ div.pentagrama {
     top: -2rem;
   } */
 
+  /*first-child selecciona al primer hijo que aparece*/
   section.barras:first-child {
-    /*Barra inicial*/
     border-left: 4px solid #000;
   }
+
+  /*first-child selecciona al primer hijo que aparece*/  
   section.barras:last-child {
     /*Barra final*/
     border-right: 4px solid #000;
   }
 
-  span.note { 
+  .cris{
+    float: left;
+    
+  }
+
+  .plica{
+    position: relative;
+    left: -42px;
+    top: -26px;
+    font-size: 3rem;
+
+  }
+
+  .compas{
+    position: relative;
+    font-size: 2rem;
+    left: 9px;
+    top: -0.3rem;
+
+  }
+  
+  /* span.note { 
     font-size: 6rem; 
     margin-right: -3.3rem;
     display: inline-block;
     position: relative;
-  }
+  } */
 
-  .prueba {
+  /* .prueba {
     position: relative;
     display: inline-block;
     width: 20px;
     margin: 3rem;
     margin-bottom: 11px;
-  }
-
+  } */
+ 
   span.hi { 
-    font-size: 6rem; 
-    margin-right: -3.3rem;
+    font-size: 5rem;  
+    /* margin-right: -3.3rem; */
     display: inline-block;
     position: relative;
   }
@@ -207,7 +227,8 @@ div.pentagrama {
     background-color: black;
     position: absolute;
     top: -50px;
-    right: 1;
+    left: 18.5px;
+  
   }
 
   .half.note::before{
@@ -237,11 +258,9 @@ div.pentagrama {
   .half.hi::before{
     position: absolute;
     content: "";
-    -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    -ms-transform: rotate(-15deg);
     border-radius: 50%;
-    bottom: -8px; /*Distancia entre el circulo y la linea o lo que este antes*/
+    bottom: -8px; /*posicion vertical del circulo*/
+    
   }
   
  
@@ -263,7 +282,8 @@ div.pentagrama {
 
   .half.hi.c2::after,
   .half.hi.d2::after{
-    top: 4px;
+    top: -50px;
+    left: 0px;
   }
 
   .clave-sol { 

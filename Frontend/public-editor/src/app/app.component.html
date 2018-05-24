@@ -1,5 +1,6 @@
 
 
+<body *ngIf="text2">
 
 
 <div class="encabezado-principal">
@@ -11,7 +12,8 @@
 
 </div>
 
-<ng-container *ngIf="text2" >
+<ng-container *ngIf="!text2" >
+
 <div class="atributos-obra">
     
     <!-- <form >
@@ -52,8 +54,9 @@
     
   
 </div>
-<div> <hr class="linea"></div>
 
+<div> <hr class="linea"></div>
+</ng-container>
 <div class="pentagrama"   >
   <!-- ngFor-->
   <!-- <section class="barras">
@@ -81,18 +84,54 @@
   <!-- <p  *ngIf ="!text" class="{{clase.tamano}}"> {{clase.tamano}} </p> -->
 <!-- </div> -->
 
-
-
-<!-- <div class="pentagrama"> -->
-    <ng-container *ngFor="let mensage of text2[id$].eventos">
-        <section class="barras"  >
-        <span   class=" {{mensage.clef}}"></span>
-        <ng-container  >
-            <span  class=" half hi {{mensage.nota}}"></span>
-            <span  class=" half hi {{mensage.nota+1}}"></span>
-            
-        </ng-container>
+<section class="barras"  >
+        <div class="cris">
+            <span   class=" {{text2[0].eventos[0].clef}}"></span>
+        </div >
+        <div class="cris compas">
+                <div>4</div>
+                <div>4</div>
+        </div>
+       
+        <div class="cris">
+            <span  class=" half hi {{text2[0].eventos[0].nota}}"> </span>
+        </div>
+        <div class="cris plica">
+            <div>#</div>
+        </div>
+        <div class="cris">
+            <span  class=" half hi {{text2[0].eventos[3].nota}}"></span>
+        </div>      
+    </section>
+    <section class="barras"  >
+            <div class="cris">
+                <span   class=" {{text2[0].eventos[0].clef}}"></span>
+            </div >
+            <div class="cris compas">
+                    <div>4</div>
+                    <div>4</div>
+            </div>
+           
+            <div class="cris">
+                <span  class=" half hi {{text2[0].eventos[0].nota}}"> </span>
+            </div>
+            <div class="cris plica">
+                <div>#</div>
+            </div>
+            <div class="cris">
+                <span  class=" half hi {{text2[0].eventos[0].nota}}"></span>
+            </div>      
         </section>
-    </ng-container>     
+<!-- <div class="pentagrama"> -->
+    <!--<ng-container *ngFor="let mensage of text2[id$].eventos">
+        <section class="barras"  >
+            <span   class=" {{mensage.clef}}"></span>
+            <ng-container  >
+                <span  class=" half hi {{mensage.nota}}"> </span><div>#</div>
+                <span  class=" half hi {{mensage.nota+1}}"></span>
+                
+            </ng-container>
+        </section>
+    </ng-container> -->    
 </div>
-</ng-container>
+</body>
